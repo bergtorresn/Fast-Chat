@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1302F5F68B5ED154B57218AA /* Pods_Fast_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AC34FE999FD0B087668EB8 /* Pods_Fast_Chat.framework */; };
 		6135873320C3513400EF712B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135873220C3513400EF712B /* AppDelegate.swift */; };
-		6135873520C3513400EF712B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135873420C3513400EF712B /* ViewController.swift */; };
 		6135873820C3513400EF712B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6135873620C3513400EF712B /* Main.storyboard */; };
 		6135873A20C3513600EF712B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6135873920C3513600EF712B /* Assets.xcassets */; };
 		6135873D20C3513600EF712B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6135873B20C3513600EF712B /* LaunchScreen.storyboard */; };
+		6135874920C352CF00EF712B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6135874820C352CE00EF712B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6135872F20C3513400EF712B /* Fast Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fast Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6135873220C3513400EF712B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6135873420C3513400EF712B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6135873720C3513400EF712B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6135873920C3513600EF712B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6135873C20C3513600EF712B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6135873E20C3513600EF712B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6135874820C352CE00EF712B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95AC34FE999FD0B087668EB8 /* Pods_Fast_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fast_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964E3249FD0BE40287D76D5D /* Pods-Fast Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat.debug.xcconfig"; sourceTree = "<group>"; };
+		D8748B84F93A3235FBC04249 /* Pods-Fast Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1302F5F68B5ED154B57218AA /* Pods_Fast_Chat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BCA1FE874AF76BF01EA0C1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95AC34FE999FD0B087668EB8 /* Pods_Fast_Chat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B189DCFA317CC16BD5FA285 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				964E3249FD0BE40287D76D5D /* Pods-Fast Chat.debug.xcconfig */,
+				D8748B84F93A3235FBC04249 /* Pods-Fast Chat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6135872620C3513400EF712B = {
 			isa = PBXGroup;
 			children = (
 				6135873120C3513400EF712B /* Fast Chat */,
 				6135873020C3513400EF712B /* Products */,
+				5B189DCFA317CC16BD5FA285 /* Pods */,
+				0BCA1FE874AF76BF01EA0C1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +78,22 @@
 		6135873120C3513400EF712B /* Fast Chat */ = {
 			isa = PBXGroup;
 			children = (
+				6135874720C352B600EF712B /* Resources */,
 				6135873220C3513400EF712B /* AppDelegate.swift */,
-				6135873420C3513400EF712B /* ViewController.swift */,
+			);
+			path = "Fast Chat";
+			sourceTree = "<group>";
+		};
+		6135874720C352B600EF712B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				6135873620C3513400EF712B /* Main.storyboard */,
 				6135873920C3513600EF712B /* Assets.xcassets */,
 				6135873B20C3513600EF712B /* LaunchScreen.storyboard */,
 				6135873E20C3513600EF712B /* Info.plist */,
+				6135874820C352CE00EF712B /* GoogleService-Info.plist */,
 			);
-			path = "Fast Chat";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6135874120C3513600EF712B /* Build configuration list for PBXNativeTarget "Fast Chat" */;
 			buildPhases = (
+				A795EEBDCEC1189BD060CC07 /* [CP] Check Pods Manifest.lock */,
 				6135872B20C3513400EF712B /* Sources */,
 				6135872C20C3513400EF712B /* Frameworks */,
 				6135872D20C3513400EF712B /* Resources */,
+				4717B6A174C0EF76EED6A29D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6135873D20C3513600EF712B /* LaunchScreen.storyboard in Resources */,
+				6135874920C352CF00EF712B /* GoogleService-Info.plist in Resources */,
 				6135873A20C3513600EF712B /* Assets.xcassets in Resources */,
 				6135873820C3513400EF712B /* Main.storyboard in Resources */,
 			);
@@ -130,12 +165,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4717B6A174C0EF76EED6A29D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A795EEBDCEC1189BD060CC07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fast Chat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6135872B20C3513400EF712B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6135873520C3513400EF712B /* ViewController.swift in Sources */,
 				6135873320C3513400EF712B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +357,12 @@
 		};
 		6135874220C3513600EF712B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 964E3249FD0BE40287D76D5D /* Pods-Fast Chat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WW725PKJLA;
-				INFOPLIST_FILE = "Fast Chat/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Fast Chat/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,11 +376,12 @@
 		};
 		6135874320C3513600EF712B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8748B84F93A3235FBC04249 /* Pods-Fast Chat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WW725PKJLA;
-				INFOPLIST_FILE = "Fast Chat/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Fast Chat/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
