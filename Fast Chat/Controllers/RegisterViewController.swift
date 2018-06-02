@@ -23,7 +23,20 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func actionSendData(_ sender: Any) {
-        
+        if Validators.isValidEmail(email: textFieldEmail.text!){
+            if Validators.isValidPassword(pswd: textFieldPswd.text!){
+                FirebaseServices.registerUser(email: textFieldEmail.text!, pswd: textFieldEmail.text!) { (result, err) in
+                    if result {
+                        self.performSegue(withIdentifier: "segueChat", sender: self)
+                    } else {
+                        Alerts.genericAlert(title: "Atenção", msg: err!, viewController: self)
+                    }
+                }
+            } else {
+                Alerts.genericAlert(title: "Atenção", msg: "Senha inválida", viewController: self)
+            }
+        } else {
+            Alerts.genericAlert(title: "Atenção", msg: "Email inválido", viewController: self)
+        }
     }
-    
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPswd: UITextField!
     
@@ -23,7 +23,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionSendData(_ sender: Any) {
-        
+        if Validators.isValidEmail(email: textFieldEmail.text!){
+            if Validators.isValidPassword(pswd: textFieldPswd.text!){
+                FirebaseServices.singIn(email: textFieldEmail.text!, pswd: textFieldEmail.text!) { (result, err) in
+                    if result {
+                        self.performSegue(withIdentifier: "segueChat", sender: self)
+                    } else {
+                        Alerts.genericAlert(title: "Atenção", msg: err!, viewController: self)
+                    }
+                }
+            } else {
+                Alerts.genericAlert(title: "Atenção", msg: "Senha inválida", viewController: self)
+            }
+        } else {
+            Alerts.genericAlert(title: "Atenção", msg: "Email inválido", viewController: self)
+        }
     }
-
 }
