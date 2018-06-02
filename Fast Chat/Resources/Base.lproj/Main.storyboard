@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="118.29085457271366"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="E91-33-oku">
             <objects>
-                <viewController id="uFp-pg-K2V" sceneMemberID="viewController">
+                <viewController id="uFp-pg-K2V" customClass="RegisterViewController" customModule="Fast_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="buV-MP-Pu8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,6 +95,9 @@
                                 <state key="normal" title="Enviar">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionSendData:" destination="uFp-pg-K2V" eventType="touchUpInside" id="iu6-7s-sVD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,17 +115,19 @@
                         <viewLayoutGuide key="safeArea" id="1Dh-nj-e7h"/>
                     </view>
                     <connections>
+                        <outlet property="textFieldEmail" destination="FyE-Kg-OmC" id="1y3-1k-jbR"/>
+                        <outlet property="textFieldPswd" destination="4Aq-EC-Rn9" id="y4Q-Mi-Kq5"/>
                         <segue destination="WVx-1c-x8R" kind="show" identifier="segueChat" id="PJH-GU-y5u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMH-Yk-2As" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-225"/>
+            <point key="canvasLocation" x="1378" y="-313"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="hBi-Ik-fXc">
             <objects>
-                <viewController id="WVx-1c-x8R" sceneMemberID="viewController">
+                <viewController id="WVx-1c-x8R" customClass="ChatViewController" customModule="Fast_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tIN-y0-mpA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,6 +163,9 @@
                                         <state key="normal" title="Enviar">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="actionSendMsg:" destination="WVx-1c-x8R" eventType="touchUpInside" id="yby-JK-sNL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.37741839100000002" green="0.41779419280000002" blue="0.47564673419999998" alpha="0.80021939210000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -186,17 +194,25 @@
                         <viewLayoutGuide key="safeArea" id="Cf2-NP-9jU"/>
                     </view>
                     <navigationItem key="navigationItem" id="1oR-zv-krn">
-                        <barButtonItem key="rightBarButtonItem" title="Sair" id="nd2-jL-4uO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sair" id="nd2-jL-4uO">
+                            <connections>
+                                <action selector="actionLogOut:" destination="WVx-1c-x8R" id="J6K-eq-iDB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableViewChat" destination="pIb-N5-eHw" id="xJx-f2-3oc"/>
+                        <outlet property="textFieldMsg" destination="3aH-is-32l" id="2f4-02-Czh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi7-Fd-Pft" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2200.8000000000002" y="117.39130434782609"/>
+            <point key="canvasLocation" x="2323" y="118"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="TmI-BS-KAC">
             <objects>
-                <viewController id="Vdd-BA-Dvm" sceneMemberID="viewController">
+                <viewController id="Vdd-BA-Dvm" customClass="LoginViewController" customModule="Fast_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFy-SR-IDv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,6 +239,9 @@
                                 <state key="normal" title="Enviar">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionSendData:" destination="Vdd-BA-Dvm" eventType="touchUpInside" id="5pf-Ey-319"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -240,12 +259,14 @@
                         <viewLayoutGuide key="safeArea" id="lLf-dM-iPn"/>
                     </view>
                     <connections>
+                        <outlet property="textFieldEmail" destination="25w-Pr-WmR" id="BJn-PL-heX"/>
+                        <outlet property="textFieldPswd" destination="qzh-oI-uld" id="0WO-HQ-Fx2"/>
                         <segue destination="WVx-1c-x8R" kind="show" identifier="segueChat" id="1tT-fE-Dbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9yw-51-FVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="494"/>
+            <point key="canvasLocation" x="1378" y="557"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NAb-G9-gDz">
@@ -267,6 +288,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1tT-fE-Dbb"/>
+        <segue reference="PJH-GU-y5u"/>
     </inferredMetricsTieBreakers>
 </document>

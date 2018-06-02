@@ -13,6 +13,9 @@
 		6135873A20C3513600EF712B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6135873920C3513600EF712B /* Assets.xcassets */; };
 		6135873D20C3513600EF712B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6135873B20C3513600EF712B /* LaunchScreen.storyboard */; };
 		6135874920C352CF00EF712B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6135874820C352CE00EF712B /* GoogleService-Info.plist */; };
+		6135874C20C3542D00EF712B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135874B20C3542C00EF712B /* LoginViewController.swift */; };
+		6135874E20C3544000EF712B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135874D20C3544000EF712B /* RegisterViewController.swift */; };
+		6135875020C3544A00EF712B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135874F20C3544A00EF712B /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		6135873C20C3513600EF712B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6135873E20C3513600EF712B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6135874820C352CE00EF712B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6135874B20C3542C00EF712B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6135874D20C3544000EF712B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		6135874F20C3544A00EF712B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		95AC34FE999FD0B087668EB8 /* Pods_Fast_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fast_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964E3249FD0BE40287D76D5D /* Pods-Fast Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		D8748B84F93A3235FBC04249 /* Pods-Fast Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 		6135873120C3513400EF712B /* Fast Chat */ = {
 			isa = PBXGroup;
 			children = (
+				6135874A20C3540C00EF712B /* Controllers */,
 				6135874720C352B600EF712B /* Resources */,
 				6135873220C3513400EF712B /* AppDelegate.swift */,
 			);
@@ -94,6 +101,16 @@
 				6135874820C352CE00EF712B /* GoogleService-Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6135874A20C3540C00EF712B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6135874B20C3542C00EF712B /* LoginViewController.swift */,
+				6135874D20C3544000EF712B /* RegisterViewController.swift */,
+				6135874F20C3544A00EF712B /* ChatViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +232,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6135874E20C3544000EF712B /* RegisterViewController.swift in Sources */,
+				6135874C20C3542D00EF712B /* LoginViewController.swift in Sources */,
+				6135875020C3544A00EF712B /* ChatViewController.swift in Sources */,
 				6135873320C3513400EF712B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
