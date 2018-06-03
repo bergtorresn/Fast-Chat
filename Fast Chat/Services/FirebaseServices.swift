@@ -22,7 +22,7 @@ class FirebaseServices {
             
             if error == nil {
                 completion(true, nil)
-                print("***** Sucesso ao cadastrar usuário)")
+                print("***** Sucesso ao cadastrar usuário")
             } else {
                 let err = error! as NSError
                 if let erroCod = err.userInfo["error_name"] {
@@ -55,9 +55,9 @@ class FirebaseServices {
         }
     }
     
-    // MARK: - SingOut
+    // MARK: - Logout
     
-    static func singOut(completion: (_ result: Bool) ->()){
+    static func logOut(completion: (_ result: Bool) ->()){
         let auth = Auth.auth()
         do {
             try auth.signOut()

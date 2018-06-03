@@ -23,8 +23,10 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func actionSendMsg(_ sender: Any) {
+        
     }
     @IBAction func actionLogOut(_ sender: Any) {
+        
     }
 }
 
@@ -38,7 +40,7 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewChat.dequeueReusableCell(withIdentifier: "CeLL")
+        let cell = tableViewChat.dequeueReusableCell(withIdentifier: "Cell")
         
         return cell!
     }
