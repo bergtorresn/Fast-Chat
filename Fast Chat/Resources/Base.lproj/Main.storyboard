@@ -196,7 +196,7 @@
                     <navigationItem key="navigationItem" id="1oR-zv-krn">
                         <barButtonItem key="rightBarButtonItem" title="Sair" id="nd2-jL-4uO">
                             <connections>
-                                <action selector="actionLogOut:" destination="WVx-1c-x8R" id="J6K-eq-iDB"/>
+                                <action selector="actionsSignOutt:" destination="WVx-1c-x8R" id="keQ-dS-0CD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -288,6 +288,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PJH-GU-y5u"/>
+        <segue reference="1tT-fE-Dbb"/>
     </inferredMetricsTieBreakers>
 </document>

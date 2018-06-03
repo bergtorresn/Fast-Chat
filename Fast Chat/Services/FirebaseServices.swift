@@ -42,7 +42,7 @@ class FirebaseServices {
         auth.signIn(withEmail: email, password: pswd) { (user, error) in
             if error == nil{
                 completion(true, nil)
-                print("***** usuário logado com sucesso")
+                print("***** usuário entrou na conta com sucesso")
             }else{
                 let err = error! as NSError
                 if let erroCod = err.userInfo["error_name"] {
@@ -62,8 +62,9 @@ class FirebaseServices {
         do {
             try auth.signOut()
             completion(true, nil)
+            print("***** usuário saiu da conta com sucesso")
         } catch let err {
-            print(err)
+            print("***** \(err)")
             completion(false, err.localizedDescription)
         }
     }
