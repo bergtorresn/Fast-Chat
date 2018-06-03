@@ -13,8 +13,19 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableViewChat: UITableView!
     @IBOutlet weak var textFieldMsg: UITextField!
     
+    let arrayMsg = ["Opa", "Blz?", "Meu nome é Rosemberg Torres Nunes, sou natural de Jaguaribe-Ce, atualmente estou morando em Fortaleza-Ce, trabalhando como Desenvolvedor Mobile.", "Qual é o seu nome? =D"]
+    
+    fileprivate func configTableView() {
+        self.tableViewChat.delegate = self
+        self.tableViewChat.dataSource = self
+        self.tableViewChat.rowHeight = UITableViewAutomaticDimension
+        self.tableViewChat.estimatedRowHeight = 120.0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configTableView()
         
     }
     
@@ -37,18 +48,21 @@ class ChatViewController: UIViewController {
 }
 
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return arrayMsg.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewChat.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableViewChat.dequeueReusableCell(withIdentifier: "CellMsgSender", for: indexPath) as! MessageCell
         
-        return cell!
+        cell.labelTextMesg.text = arrayMsg[indexPath.row]
+        
+        return cell
     }
     
 }

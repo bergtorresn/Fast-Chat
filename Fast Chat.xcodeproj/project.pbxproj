@@ -19,6 +19,7 @@
 		6135875320C3581400EF712B /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135875220C3581400EF712B /* FirebaseServices.swift */; };
 		6135875620C3582F00EF712B /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135875520C3582F00EF712B /* Alerts.swift */; };
 		6135875820C358CE00EF712B /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135875720C358CE00EF712B /* Validators.swift */; };
+		61BAB40A20C473F5009A2400 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BAB40920C473F5009A2400 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		6135875220C3581400EF712B /* FirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServices.swift; sourceTree = "<group>"; };
 		6135875520C3582F00EF712B /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		6135875720C358CE00EF712B /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		61BAB40920C473F5009A2400 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		95AC34FE999FD0B087668EB8 /* Pods_Fast_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fast_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964E3249FD0BE40287D76D5D /* Pods-Fast Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		D8748B84F93A3235FBC04249 /* Pods-Fast Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fast Chat/Pods-Fast Chat.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		6135874A20C3540C00EF712B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				61BAB40820C473CA009A2400 /* CustomCell */,
 				6135874B20C3542C00EF712B /* LoginViewController.swift */,
 				6135874D20C3544000EF712B /* RegisterViewController.swift */,
 				6135874F20C3544A00EF712B /* ChatViewController.swift */,
@@ -136,6 +139,14 @@
 				6135875720C358CE00EF712B /* Validators.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		61BAB40820C473CA009A2400 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				61BAB40920C473F5009A2400 /* MessageCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6135875320C3581400EF712B /* FirebaseServices.swift in Sources */,
+				61BAB40A20C473F5009A2400 /* MessageCell.swift in Sources */,
 				6135875820C358CE00EF712B /* Validators.swift in Sources */,
 				6135874E20C3544000EF712B /* RegisterViewController.swift in Sources */,
 				6135874C20C3542D00EF712B /* LoginViewController.swift in Sources */,
