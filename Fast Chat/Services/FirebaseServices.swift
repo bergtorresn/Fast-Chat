@@ -15,7 +15,7 @@ class FirebaseServices {
     
     // MARK: - Register
     
-    static func registerUser(email: String, pswd: String, completion: @escaping (_ result: Bool, _ err: String?) ->()){
+    static func registerUser(email: String, pswd: String, completion: @escaping (_ result: Bool, _ err: String?) -> Void){
         
         let auth = Auth.auth()
         auth.createUser(withEmail: email, password: pswd) { (user, error) in
@@ -36,7 +36,7 @@ class FirebaseServices {
     
     // MARK: - SingIn
     
-    static func singIn(email: String, pswd: String, completion: @escaping (_ result: Bool, _ err: String?) ->()){
+    static func singIn(email: String, pswd: String, completion: @escaping (_ result: Bool, _ err: String?) -> Void){
         
         let auth = Auth.auth()
         auth.signIn(withEmail: email, password: pswd) { (user, error) in
@@ -55,16 +55,16 @@ class FirebaseServices {
         }
     }
     
-    // MARK: - Logout
+    // MARK: - signOut
     
-    static func logOut(completion: (_ result: Bool) ->()){
+    static func signOut(completion: (_ result: Bool, _ err: String?) -> Void){
         let auth = Auth.auth()
         do {
             try auth.signOut()
-            completion(true)
+            completion(true, nil)
         } catch let err {
             print(err)
-            completion(false)
+            completion(false, err.localizedDescription)
         }
     }
 }

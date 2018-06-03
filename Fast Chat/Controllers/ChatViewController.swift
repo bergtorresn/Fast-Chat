@@ -25,8 +25,14 @@ class ChatViewController: UIViewController {
     @IBAction func actionSendMsg(_ sender: Any) {
         
     }
-    @IBAction func actionLogOut(_ sender: Any) {
-        
+    @IBAction func actionsSignOutt(_ sender: Any) {
+        FirebaseServices.signOut { (isSucessed, err) in
+            if isSucessed {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else{
+                Alerts.genericAlert(title: "Atenção", msg: err!, viewController: self)
+            }
+        }
     }
 }
 
