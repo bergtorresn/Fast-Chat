@@ -12,21 +12,29 @@ class ChatViewController: UIViewController {
     
     @IBOutlet weak var tableViewChat: UITableView!
     @IBOutlet weak var textFieldMsg: UITextField!
+    @IBOutlet weak var constraintHeightViewMsg: NSLayoutConstraint! // 50 keyboard close | 308 keyboard open
     
     let arrayMsg = ["Opa", "Blz?", "Meu nome é Rosemberg Torres Nunes, sou natural de Jaguaribe-Ce, atualmente estou morando em Fortaleza-Ce, trabalhando como Desenvolvedor Mobile.", "Qual é o seu nome? =D"]
-    
-    fileprivate func configTableView() {
-        self.tableViewChat.delegate = self
-        self.tableViewChat.dataSource = self
-        self.tableViewChat.rowHeight = UITableViewAutomaticDimension
-        self.tableViewChat.estimatedRowHeight = 120.0
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configTableView()
-        
+        textFieldMsg.delegate = self
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+        tableViewChat.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tableViewTapped() {
+        textFieldMsg.endEditing(true)
+    }
+    
+    fileprivate func configTableView() {
+        tableViewChat.delegate = self
+        tableViewChat.dataSource = self
+        tableViewChat.rowHeight = UITableViewAutomaticDimension
+        tableViewChat.estimatedRowHeight = 120.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,8 +42,8 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func actionSendMsg(_ sender: Any) {
-        
     }
+    
     @IBAction func actionsSignOutt(_ sender: Any) {
         FirebaseServices.signOut { (isSucessed, err) in
             if isSucessed {
@@ -63,6 +71,23 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
         cell.labelTextMesg.text = arrayMsg[indexPath.row]
         
         return cell
+    }
+}
+
+extension ChatViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.4) {
+            self.constraintHeightViewMsg.constant = 310
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.4) {
+            self.constraintHeightViewMsg.constant = 50
+            self.view.layoutIfNeeded()
+        }
     }
     
 }

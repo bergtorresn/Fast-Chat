@@ -132,11 +132,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pIb-N5-eHw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pIb-N5-eHw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellMsgSender" rowHeight="70" id="OFM-a3-w3K" customClass="MessageCell" customModule="Fast_Chat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellMsgSender" rowHeight="70" id="OFM-a3-w3K" customClass="MessageCell" customModule="Fast_Chat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OFM-a3-w3K" id="KCL-CB-0m9">
@@ -226,7 +226,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsI-w3-094">
                                         <rect key="frame" x="307" y="8" width="60" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="S9X-EK-M7g"/>
+                                            <constraint firstAttribute="width" constant="60" id="8QB-D2-pNA"/>
+                                            <constraint firstAttribute="height" constant="34" id="pQa-yL-4a4"/>
                                         </constraints>
                                         <state key="normal" title="Enviar">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,14 +239,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.37741839100000002" green="0.41779419280000002" blue="0.47564673419999998" alpha="0.80021939210000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="EsI-w3-094" secondAttribute="trailing" constant="8" id="2V9-Zq-plt"/>
+                                    <constraint firstItem="3aH-is-32l" firstAttribute="leading" secondItem="odf-CL-adk" secondAttribute="leading" constant="8" id="57x-rV-lfl"/>
                                     <constraint firstAttribute="height" constant="50" id="Gb3-E9-rLk"/>
-                                    <constraint firstAttribute="trailing" secondItem="EsI-w3-094" secondAttribute="trailing" constant="8" id="JMc-7M-iey"/>
-                                    <constraint firstItem="3aH-is-32l" firstAttribute="top" secondItem="odf-CL-adk" secondAttribute="top" constant="10" id="WTu-3W-mGO"/>
-                                    <constraint firstAttribute="bottom" secondItem="3aH-is-32l" secondAttribute="bottom" constant="10" id="fsO-Em-7Ir"/>
-                                    <constraint firstItem="EsI-w3-094" firstAttribute="leading" secondItem="3aH-is-32l" secondAttribute="trailing" constant="8" id="h74-NE-yuf"/>
-                                    <constraint firstItem="3aH-is-32l" firstAttribute="leading" secondItem="odf-CL-adk" secondAttribute="leading" constant="8" id="oXt-Lt-fh8"/>
-                                    <constraint firstItem="EsI-w3-094" firstAttribute="top" secondItem="odf-CL-adk" secondAttribute="top" constant="8" id="wSI-er-DMt"/>
-                                    <constraint firstAttribute="bottom" secondItem="EsI-w3-094" secondAttribute="bottom" constant="8" id="xjj-Qh-84n"/>
+                                    <constraint firstItem="EsI-w3-094" firstAttribute="leading" secondItem="3aH-is-32l" secondAttribute="trailing" constant="8" id="Iyc-Up-vhi"/>
+                                    <constraint firstItem="EsI-w3-094" firstAttribute="top" secondItem="odf-CL-adk" secondAttribute="top" constant="8" id="RHi-nA-AzX"/>
+                                    <constraint firstItem="3aH-is-32l" firstAttribute="top" secondItem="odf-CL-adk" secondAttribute="top" constant="10" id="YX2-sS-CWY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -269,6 +268,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="constraintHeightViewMsg" destination="Gb3-E9-rLk" id="uuY-vQ-oaC"/>
                         <outlet property="tableViewChat" destination="pIb-N5-eHw" id="xJx-f2-3oc"/>
                         <outlet property="textFieldMsg" destination="3aH-is-32l" id="2f4-02-Czh"/>
                     </connections>
