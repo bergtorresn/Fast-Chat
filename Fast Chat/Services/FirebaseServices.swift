@@ -7,9 +7,8 @@
 //
 
 import Foundation
-
-import Foundation
 import FirebaseAuth
+import FirebaseDatabase
 
 class FirebaseServices {
     
@@ -66,6 +65,23 @@ class FirebaseServices {
         } catch let err {
             print("***** \(err)")
             completion(false, err.localizedDescription)
+        }
+    }
+    
+    static func insertMessage(message: String, completion: @escaping (_ result: Bool) -> Void){
+        
+        let ReferenceDatabase = Database.database().reference()
+        let child = ReferenceDatabase.child("Messages")
+        
+        let messageDict = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : message]
+        child.childByAutoId().setValue(messageDict) { (error, reference ) in
+            if error != nil {
+                print("****** Error ao enviar a mensagem: \(error.debugDescription)")
+                completion(false)
+            } else{
+                completion(true)
+                print("****** Mensagem enviada com sucesso")
+            }
         }
     }
 }

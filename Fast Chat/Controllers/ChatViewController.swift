@@ -42,6 +42,11 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func actionSendMsg(_ sender: Any) {
+        FirebaseServices.insertMessage(message: self.textFieldMsg.text!) { (result) in
+            if !result {
+                Alerts.genericAlert(title: "Atenção", msg: "Não foi possível enviar a mensagem, tente novamente.", viewController: self)
+            }
+        }
     }
     
     @IBAction func actionsSignOutt(_ sender: Any) {
