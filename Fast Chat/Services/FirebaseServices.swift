@@ -12,8 +12,9 @@ import FirebaseDatabase
 
 class FirebaseServices {
     
-    // MARK: - Register
+    // MARK: - Firebase Auth
     
+    // MARK: - Register
     static func registerUser(email: String, pswd: String, completion: @escaping (_ result: Bool, _ err: String?) -> Void){
         
         let auth = Auth.auth()
@@ -34,7 +35,6 @@ class FirebaseServices {
     }
     
     // MARK: - SingIn
-    
     static func singIn(email: String, pswd: String, completion: @escaping (_ result: Bool, _ err: String?) -> Void){
         
         let auth = Auth.auth()
@@ -55,7 +55,6 @@ class FirebaseServices {
     }
     
     // MARK: - signOut
-    
     static func signOut(completion: (_ result: Bool, _ err: String?) -> Void){
         let auth = Auth.auth()
         do {
@@ -68,12 +67,29 @@ class FirebaseServices {
         }
     }
     
+    
+    // MARK: - UserExist
+    static func isUser(completion: @escaping (_ result: Bool) -> Void) {
+        let auth = Auth.auth()
+        
+        if auth.currentUser != nil {
+            completion(true)
+        } else{
+            completion(false)
+        }
+    }
+    
+    // MARK: - Firebase Database
+    
+    // MARK: - insertMessage
     static func insertMessage(message: String, completion: @escaping (_ result: Bool) -> Void){
         
-        let ReferenceDatabase = Database.database().reference()
-        let child = ReferenceDatabase.child("Messages")
+        let referenceDatabase = Database.database().reference()
+        let currentUser = Auth.auth().currentUser?.email
         
-        let messageDict = ["Sender" : Auth.auth().currentUser?.email, "MessageBody" : message]
+        let child = referenceDatabase.child("Messages")
+        let messageDict = ["Sender" : currentUser, "MessageBody" : message]
+        
         child.childByAutoId().setValue(messageDict) { (error, reference ) in
             if error != nil {
                 print("****** Error ao enviar a mensagem: \(error.debugDescription)")
@@ -84,4 +100,18 @@ class FirebaseServices {
             }
         }
     }
+    
+    static func getMessages(completion: @escaping(_ message: String, _ sender: String) -> Void) {
+        
+        let referenceDatabase = Database.database().reference()
+        let child = referenceDatabase.child("Messages")
+        
+        child.observe(.childAdded) { (snapshot) in
+            let snapshotValue = snapshot.value as! Dictionary<String, String>
+            let message = snapshotValue["MessageBody"]!
+            let sender = snapshotValue["Sender"]!
+            completion(message, sender)
+        }
+    }
+
 }

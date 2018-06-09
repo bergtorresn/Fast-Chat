@@ -10,41 +10,68 @@ import UIKit
 
 class ChatViewController: UIViewController {
     
+    //MARK: - UI Elements
+    
     @IBOutlet weak var tableViewChat: UITableView!
     @IBOutlet weak var textFieldMsg: UITextField!
     @IBOutlet weak var constraintHeightViewMsg: NSLayoutConstraint! // 50 keyboard close | 308 keyboard open
     
-    let arrayMsg = ["Opa", "Blz?", "Meu nome é Rosemberg Torres Nunes, sou natural de Jaguaribe-Ce, atualmente estou morando em Fortaleza-Ce, trabalhando como Desenvolvedor Mobile.", "Qual é o seu nome? =D"]
-
+    //MARK: - Properties
+    
+    var messageArray = [Message]()
+    
+    //MARK: - ViewController lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configTableView()
         textFieldMsg.delegate = self
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
-        tableViewChat.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func tableViewTapped() {
-        textFieldMsg.endEditing(true)
-    }
-    
-    fileprivate func configTableView() {
         tableViewChat.delegate = self
         tableViewChat.dataSource = self
-        tableViewChat.rowHeight = UITableViewAutomaticDimension
-        tableViewChat.estimatedRowHeight = 120.0
+    
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+        tableViewChat.addGestureRecognizer(tapGesture)
+        
+        fetchMessages()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Methods
+    
+    @objc func tableViewTapped() {
+        textFieldMsg.endEditing(true)
+    }
+    
+    fileprivate func configTableView() {
+        tableViewChat.rowHeight = UITableViewAutomaticDimension
+        tableViewChat.estimatedRowHeight = 120.0
+        tableViewChat.reloadData()
+    }
+    
+    func fetchMessages() {
+        FirebaseServices.getMessages { (message, sender) in
+            let newMessage = Message()
+            newMessage.messageBody = message
+            newMessage.sender = sender
+            
+            self.messageArray.append(newMessage)
+            self.textFieldMsg.endEditing(true)
+            self.configTableView()
+        }
+    }
+    
+    
+    // MARK: Buttons Actions
+    
     @IBAction func actionSendMsg(_ sender: Any) {
         FirebaseServices.insertMessage(message: self.textFieldMsg.text!) { (result) in
             if !result {
                 Alerts.genericAlert(title: "Atenção", msg: "Não foi possível enviar a mensagem, tente novamente.", viewController: self)
+            } else {
+                self.textFieldMsg.text = ""
             }
         }
     }
@@ -60,6 +87,8 @@ class ChatViewController: UIViewController {
     }
 }
 
+// MARK: TableView Delegate & DataSource
+
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,17 +96,19 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayMsg.count
+        return messageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewChat.dequeueReusableCell(withIdentifier: "CellMsgSender", for: indexPath) as! MessageCell
         
-        cell.labelTextMesg.text = arrayMsg[indexPath.row]
+        cell.labelTextMesg.text = messageArray[indexPath.row].messageBody
         
         return cell
     }
 }
+
+// MARK: Textfield Delegate
 
 extension ChatViewController: UITextFieldDelegate {
     

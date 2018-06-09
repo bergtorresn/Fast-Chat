@@ -20,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        FirebaseServices.isUser { (result) in
+            if result {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "CHAT_VIEWCONTROLLER")
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        
         return true
     }
 

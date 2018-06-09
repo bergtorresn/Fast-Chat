@@ -127,7 +127,7 @@
         <!--Chat View Controller-->
         <scene sceneID="hBi-Ik-fXc">
             <objects>
-                <viewController id="WVx-1c-x8R" customClass="ChatViewController" customModule="Fast_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CHAT_VIEWCONTROLLER" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WVx-1c-x8R" customClass="ChatViewController" customModule="Fast_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tIN-y0-mpA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,6 +356,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1tT-fE-Dbb"/>
+        <segue reference="MFe-SM-phg"/>
     </inferredMetricsTieBreakers>
 </document>
