@@ -14,7 +14,7 @@ class ChatViewController: UIViewController {
     
     @IBOutlet weak var tableViewChat: UITableView!
     @IBOutlet weak var textFieldMsg: UITextField!
-    @IBOutlet weak var constraintHeightViewMsg: NSLayoutConstraint! // 50 keyboard close | 308 keyboard open
+    @IBOutlet weak var constraintHeightViewMsg: NSLayoutConstraint! // 50 keyboard closed | 308 keyboard open
     
     //MARK: - Properties
     
@@ -32,7 +32,9 @@ class ChatViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         tableViewChat.addGestureRecognizer(tapGesture)
         
+        configTableView()
         fetchMessages()
+      
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,7 +50,6 @@ class ChatViewController: UIViewController {
     fileprivate func configTableView() {
         tableViewChat.rowHeight = UITableViewAutomaticDimension
         tableViewChat.estimatedRowHeight = 120.0
-        tableViewChat.reloadData()
     }
     
     func fetchMessages() {
@@ -59,6 +60,7 @@ class ChatViewController: UIViewController {
             
             self.messageArray.append(newMessage)
             self.textFieldMsg.endEditing(true)
+            self.tableViewChat.reloadData()
             self.configTableView()
         }
     }
@@ -90,10 +92,6 @@ class ChatViewController: UIViewController {
 // MARK: TableView Delegate & DataSource
 
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageArray.count
