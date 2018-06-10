@@ -28,13 +28,13 @@ class ChatViewController: UIViewController {
         textFieldMsg.delegate = self
         tableViewChat.delegate = self
         tableViewChat.dataSource = self
-    
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         tableViewChat.addGestureRecognizer(tapGesture)
         
         configTableView()
         fetchMessages()
-      
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,11 +60,18 @@ class ChatViewController: UIViewController {
             
             self.messageArray.append(newMessage)
             self.textFieldMsg.endEditing(true)
-            self.tableViewChat.reloadData()
             self.configTableView()
+            self.tableViewChat.reloadData()
+            self.scrollToBottom()
         }
     }
     
+    func scrollToBottom() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.messageArray.count-1, section: 0)
+            self.tableViewChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
     
     // MARK: Buttons Actions
     
@@ -111,16 +118,19 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
 extension ChatViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.4) {
-            self.constraintHeightViewMsg.constant = 310
+        self.constraintHeightViewMsg.constant = 310
+        UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.view.layoutIfNeeded()
+        }) { (completed) in
+            self.scrollToBottom()
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.4) {
-            self.constraintHeightViewMsg.constant = 50
+        self.constraintHeightViewMsg.constant = 50
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.view.layoutIfNeeded()
+        }) { (completed) in
         }
     }
     
