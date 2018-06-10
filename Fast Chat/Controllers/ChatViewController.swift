@@ -67,10 +67,8 @@ class ChatViewController: UIViewController {
     }
     
     func scrollToBottom() {
-        DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.messageArray.count-1, section: 0)
-            self.tableViewChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        }
+        let indexPath = IndexPath(row: self.messageArray.count-1, section: 0)
+        self.tableViewChat.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
     
     // MARK: Buttons Actions
